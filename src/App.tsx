@@ -60,7 +60,11 @@ const App: React.FC = () => {
 
   const handleLocationChange = () => {
     if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser");
+      setError("Geolocation is not supported by your browser. Weather from a random location will be displayed instead.");
+      const newRandomPlace = getRandomPlace();
+      setLat(newRandomPlace.lat);
+      setLon(newRandomPlace.lon);
+      updateInputs(newRandomPlace.lat, newRandomPlace.lon);
       return;
     }
 
@@ -70,31 +74,40 @@ const App: React.FC = () => {
         const longitude = position.coords.longitude;
         setLat(latitude);
         setLon(longitude);
-
-        const latitudeInput = document.getElementById("latitude") as HTMLInputElement;
-        const longitudeInput = document.getElementById("longitude") as HTMLInputElement;
-        if (latitudeInput && longitudeInput) {
-          latitudeInput.value = latitude.toFixed(6);
-          longitudeInput.value = longitude.toFixed(6);
-        }
+        updateInputs(latitude, longitude);
       },
       (error) => {
+        let errorMessage = "";
         switch (error.code) {
           case error.PERMISSION_DENIED:
-            setError("User denied the request for Geolocation.");
+            errorMessage = "User denied the request for Geolocation. Weather from a random location will be displayed instead.";
             break;
           case error.POSITION_UNAVAILABLE:
-            setError("Location information is unavailable.");
+            errorMessage = "Location information is unavailable. Weather from a random location will be displayed instead.";
             break;
           case error.TIMEOUT:
-            setError("The request to get user location timed out.");
+            errorMessage = "The request to get user location timed out. Weather from a random location will be displayed instead.";
             break;
           default:
-            setError("An unknown error occurred.");
+            errorMessage = "An unknown error occurred. Weather from a random location will be displayed instead.";
             break;
         }
+        setError(errorMessage);
+        const newRandomPlace = getRandomPlace();
+        setLat(newRandomPlace.lat);
+        setLon(newRandomPlace.lon);
+        updateInputs(newRandomPlace.lat, newRandomPlace.lon);
       }
     );
+  };
+
+  const updateInputs = (latitude: number, longitude: number) => {
+    const latitudeInput = document.getElementById("latitude") as HTMLInputElement;
+    const longitudeInput = document.getElementById("longitude") as HTMLInputElement;
+    if (latitudeInput && longitudeInput) {
+      latitudeInput.value = latitude.toFixed(6);
+      longitudeInput.value = longitude.toFixed(6);
+    }
   };
 
   return (
