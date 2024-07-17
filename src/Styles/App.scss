@@ -1,0 +1,240 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+//App Styles
+.appMainContainer {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .appTitleContainer {
+    padding: 15px;
+
+    @media (max-width: 500px) {
+      .appMainTitle {
+        font-size: calc(1.25rem + 1vw);
+      }
+    }
+  }
+
+  .inlineForm {
+    background-color: #708090;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    width: 100%;
+
+    .formLabel {
+      margin: 0 10px;
+    }
+
+    .formInput {
+      padding: 5px;
+      margin: 0 10px;
+    }
+
+    .formButton {
+      padding: 8px 20px;
+      margin: 0 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .inlineForm {
+      .formInput {
+        width: calc(50% - 20px);
+      }
+    }
+  }
+
+  @media (max-width: 458px) {
+    .inlineForm {
+      .formLabel {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+// Current Weather Styles
+.currentWeatherContainer {
+  background-color: #61dafb;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  width: 100%;
+
+  .weatherCardHeader {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .cityTitle {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .currentWeatherCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .currentWeatherCard {
+      background: white;
+      color: black;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 15px;
+      text-align: center;
+      flex: 1 1 calc(33.333% - 20px);
+      box-sizing: border-box;
+
+      .weatherCardBody {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .currentWeatherCardContainer {
+      .currentWeatherCard {
+        flex: 1 1 calc(50% - 20px);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .currentWeatherCardContainer {
+      flex-direction: column;
+      align-items: center;
+
+      .currentWeatherCard {
+        flex: 1 1 calc(100% - 20px);
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  #map {
+    height: 400px;
+    width: 100%;
+
+    @media (max-width: 1200px) {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      height: 300px;
+    }
+  }
+}
+
+//Seven Day Forecast Styles
+.sevenDayMainContainer {
+  background-color: #31006F;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+
+  .mainTitle {
+    text-align: center;
+  }
+
+  .cityTitle {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .forecastCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .forecastCard {
+      background: white;
+      color: black;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 15px;
+      text-align: center;
+      flex: 1 1 calc(33.333% - 20px);
+      box-sizing: border-box;
+
+      .weatherCardBody {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .weatherIconImage {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .forecastCardContainer {
+      .forecastCard {
+        flex: 1 1 calc(50% - 20px);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .forecastCardContainer {
+      .forecastCard {
+        flex: 1 1 calc(100% - 20px);
+      }
+    }
+  }
+}
