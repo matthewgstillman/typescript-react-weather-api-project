@@ -60,7 +60,7 @@ const App: React.FC = () => {
 
   const handleLocationChange = () => {
     if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your mobile browser. Weather from a random location will be displayed instead. Click the get location button to change random locations ");
+      setError("Geolocation is not supported by your mobile browser. Weather from a random location will be displayed instead. Click the Get Location button to change random locations ");
       const newRandomPlace = getRandomPlace();
       setLat(newRandomPlace.lat);
       setLon(newRandomPlace.lon);
@@ -80,16 +80,16 @@ const App: React.FC = () => {
         let errorMessage = "";
         switch (error.code) {
           case error.PERMISSION_DENIED:
-            errorMessage = "User denied the request for Geolocation. Weather from a random location will be displayed instead. Click the get location button to change random locations ";
+            errorMessage = "User denied the request for Geolocation. Weather from a random location will be displayed instead. Click the Get Location button to change random locations ";
             break;
           case error.POSITION_UNAVAILABLE:
-            errorMessage = "Location information is unavailable. Weather from a random location will be displayed instead. Click the get location button to change random locations ";
+            errorMessage = "Location information is unavailable. Weather from a random location will be displayed instead. Click the Get Location button to change random locations ";
             break;
           case error.TIMEOUT:
-            errorMessage = "The request to get user location timed out. Weather from a random location will be displayed instead. Click the get location button to change random locations ";
+            errorMessage = "The request to get user location timed out. Weather from a random location will be displayed instead. Click the Get Location button to change random locations ";
             break;
           default:
-            errorMessage = "An unknown error occurred. Weather from a random location will be displayed instead. Click the get location button to change random locations ";
+            errorMessage = "An unknown error occurred. Weather from a random location will be displayed instead. Click the Get Location button to change random locations ";
             break;
         }
         setError(errorMessage);
