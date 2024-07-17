@@ -75,7 +75,7 @@
   border: none;
   cursor: pointer;
 }
-.appMainContainer .inlineForm .error {
+.appMainContainer .error {
   padding: 15px;
   text-align: center;
 }
