@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CurrentWeather from './Components/CurrentWeather';
 import SevenDayForecast from './Components/SevenDayForecast';
 import './Styles/App.css';
@@ -56,21 +56,45 @@ const App: React.FC = () => {
   const randomPlace = getRandomPlace();
   const [lat, setLat] = useState<number>(randomPlace.lat);
   const [lon, setLon] = useState<number>(randomPlace.lon);
+  const [error, setError] = useState<string | null>(null);
 
   const handleLocationChange = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      setLat(latitude);
-      setLon(longitude);
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by your browser");
+      return;
+    }
 
-      const latitudeInput = document.getElementById("latitude") as HTMLInputElement;
-      const longitudeInput = document.getElementById("longitude") as HTMLInputElement;
-      if (latitudeInput && longitudeInput) {
-        latitudeInput.value = latitude.toFixed(6);
-        longitudeInput.value = longitude.toFixed(6);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        setLat(latitude);
+        setLon(longitude);
+
+        const latitudeInput = document.getElementById("latitude") as HTMLInputElement;
+        const longitudeInput = document.getElementById("longitude") as HTMLInputElement;
+        if (latitudeInput && longitudeInput) {
+          latitudeInput.value = latitude.toFixed(6);
+          longitudeInput.value = longitude.toFixed(6);
+        }
+      },
+      (error) => {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            setError("User denied the request for Geolocation.");
+            break;
+          case error.POSITION_UNAVAILABLE:
+            setError("Location information is unavailable.");
+            break;
+          case error.TIMEOUT:
+            setError("The request to get user location timed out.");
+            break;
+          default:
+            setError("An unknown error occurred.");
+            break;
+        }
       }
-    });
+    );
   };
 
   return (
@@ -89,6 +113,7 @@ const App: React.FC = () => {
         </label>
         <button type="button" className="formButton" onClick={handleLocationChange}>Get Location</button>
       </form>
+      {error && <p className="error">{error}</p>}
       <CurrentWeather lat={lat} lon={lon} />
       <SevenDayForecast lat={lat} lon={lon} />
     </div>
