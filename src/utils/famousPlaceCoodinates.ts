@@ -20,7 +20,7 @@ export const famousPlaces = [
     { lat: 50.7000, lon: -119.2833 }, // Salmon Arm
     { lat: 52.1333, lon: -122.1333 }, // Williams Lake
     { lat: 54.0000, lon: -130.0000 }, // Terrace
-  
+    
     // Colorado
     { lat: 39.7392, lon: -104.9903 }, // Denver
     { lat: 39.5501, lon: -105.7821 }, // Fairplay
@@ -42,7 +42,7 @@ export const famousPlaces = [
     { lat: 39.9990, lon: -105.2372 }, // Nederland
     { lat: 37.7690, lon: -107.7636 }, // Silverton
     { lat: 38.9897, lon: -105.0467 }, // Woodland Park
-  
+    
     // Utah
     { lat: 40.7608, lon: -111.8910 }, // Salt Lake City
     { lat: 37.2982, lon: -113.0263 }, // Zion National Park
@@ -64,7 +64,7 @@ export const famousPlaces = [
     { lat: 40.4897, lon: -111.4262 }, // Heber City
     { lat: 41.3072, lon: -111.9649 }, // Layton
     { lat: 40.1699, lon: -111.6208 }, // Spanish Fork
-  
+    
     // Alaska
     { lat: 61.2175, lon: -149.8584 }, // Anchorage
     { lat: 64.2008, lon: -149.4937 }, // Denali National Park
@@ -90,5 +90,54 @@ export const famousPlaces = [
     { lat: 60.9070, lon: -149.2944 }, // Girdwood
     { lat: 65.2559, lon: -166.3783 }, // Nome
     { lat: 61.0137, lon: -149.5380 }, // Eagle River Nature Center
-    { lat: 60.8898, lon: -149.8806 } // Portage Glacier
-]
+    { lat: 60.8898, lon: -149.8806 }, // Portage Glacier
+  
+    // California
+    { lat: 36.7783, lon: -119.4179 }, // Yosemite National Park
+    { lat: 34.0522, lon: -118.2437 }, // Los Angeles
+    { lat: 37.7749, lon: -122.4194 }, // San Francisco
+    { lat: 36.9741, lon: -122.0308 }, // Santa Cruz
+    { lat: 34.0736, lon: -118.4004 }, // Beverly Hills
+    { lat: 36.1146, lon: -119.6816 }, // Sequoia National Park
+    { lat: 33.8734, lon: -117.8653 }, // Orange County
+    { lat: 37.6879, lon: -122.4702 }, // Pacifica
+    { lat: 32.7157, lon: -117.1611 }, // San Diego
+    { lat: 38.5816, lon: -121.4944 }, // Sacramento
+  
+    // Oregon
+    { lat: 45.5231, lon: -122.6765 }, // Portland
+    { lat: 43.8041, lon: -120.5542 }, // Bend
+    { lat: 44.0521, lon: -123.0868 }, // Eugene
+    { lat: 45.4129, lon: -122.5659 }, // Oregon City
+    { lat: 45.5051, lon: -122.6750 }, // Multnomah Falls
+    { lat: 44.9429, lon: -123.0351 }, // Salem
+    { lat: 42.3265, lon: -122.8756 }, // Medford
+    { lat: 42.2399, lon: -121.7868 }, // Klamath Falls
+    { lat: 43.2345, lon: -123.3258 }, // Roseburg
+    { lat: 44.6427, lon: -124.0483 }, // Newport
+  
+    // Washington
+    { lat: 47.6062, lon: -122.3321 }, // Seattle
+    { lat: 48.7502, lon: -121.8104 }, // Mount Baker
+    { lat: 47.7511, lon: -120.7401 }, // Leavenworth
+    { lat: 48.0594, lon: -122.8145 }, // Port Townsend
+    { lat: 47.0379, lon: -122.9007 }, // Olympia
+    { lat: 46.8523, lon: -121.7603 }, // Mount Rainier National Park
+    { lat: 46.1027, lon: -122.8938 }, // Longview
+    { lat: 46.8523, lon: -121.7598 }, // Paradise, Mount Rainier
+    { lat: 48.4614, lon: -123.7166 }, // Port Angeles
+    { lat: 48.5166, lon: -122.6158 }, // Anacortes
+  
+    // Alberta
+    { lat: 51.0486, lon: -114.0708 }, // Calgary
+    { lat: 53.5461, lon: -113.4938 }, // Edmonton
+    { lat: 51.1784, lon: -115.5708 }, // Banff
+    { lat: 51.0481, lon: -115.4870 }, // Canmore
+    { lat: 52.2681, lon: -113.8112 }, // Red Deer
+    { lat: 55.1699, lon: -118.7978 }, // Grande Prairie
+    { lat: 50.2676, lon: -119.2731 }, // Sylvan Lake
+    { lat: 52.2765, lon: -113.8186 }, // Lacombe
+    { lat: 51.1633, lon: -115.5708 }, // Lake Louise
+    { lat: 53.5333, lon: -113.5033 }, // Jasper National Park
+  ];
+  
