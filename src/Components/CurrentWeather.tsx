@@ -75,10 +75,20 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ lat, lon }) => {
     let date = new Date(unix * 1000);
     let hours = date.getHours();
     let minutes = "0" + date.getMinutes();
-    let seconds = "0" + date.getSeconds();
-    let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    let period = "AM";
+  
+    if (hours >= 12) {
+      period = "PM";
+      if (hours > 12) {
+        hours -= 12;
+      }
+    } else if (hours === 0) {
+      hours = 12;
+    }
+  
+    let formattedTime = hours + ':' + minutes.substr(-2) + ' ' + period;
     return formattedTime;
-  }
+  }  
 
   const loadGoogleMapsScript = (apiKey: string, callback: () => void) => {
     const existingScript = document.getElementById('googleMapsScript');
@@ -147,8 +157,8 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ lat, lon }) => {
                   <div>Low: {weatherData.main.temp_min}°F</div>
                   <div>Humidity: {weatherData.main.humidity}%</div>
                   <div>Wind: {weatherData.wind.speed} MPH</div>
-                  <div>Sunrise: {convertUnixTimeStamp(weatherData.sys.sunrise)} AM</div>
-                  <div>Sunset: {convertUnixTimeStamp(weatherData.sys.sunset)} PM</div>
+                  <div>Sunrise: {convertUnixTimeStamp(weatherData.sys.sunrise)}</div>
+                  <div>Sunset: {convertUnixTimeStamp(weatherData.sys.sunset)}</div>
                 </div>
               </div>
             </div>
