@@ -60,7 +60,7 @@ const App: React.FC = () => {
 
   const handleLocationChange = () => {
     if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your mobile browser. Weather from a random location will be displayed instead. Click the Get Location button to change random locations. For better geolocation results, please use a desktop computer.");
+      setError("Unable to get mobile location on your mobile browser. Weather from a random location will be displayed instead. Click the Get Location button to change random locations. For better geolocation results, please use a desktop computer.");
       const newRandomPlace = getRandomPlace();
       setLat(newRandomPlace.lat);
       setLon(newRandomPlace.lon);
